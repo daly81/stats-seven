@@ -1,0 +1,48 @@
+<div class="page" data-name="unplayed">
+  <div class="navbar">
+    <div class="navbar-inner sliding">
+      <div class="left">
+        <a href="#" class="link back">
+          <i class="icon icon-back"></i>
+          <span class="ios-only">Back</span>
+        </a>
+      </div>
+      <div class="title unplayed-title">Matchup</div>
+    </div><!-- navbar-inner sliding -->
+  </div><!-- navbar -->
+  <div class="toolbar tabbar tabbar-labels">
+    <div class="toolbar-inner">
+      <a id="matchup_trig" class="tab-link tab-link-active">
+        <span class="tabbar-label">Matchup</span>
+      </a>
+      <a id="lineup_trig" class="tab-link">
+        <span class="tabbar-label">lineup</span>
+      </a>
+    </div>
+  </div><!-- toolbar tabbar tabbar-labels -->
+
+  <div class="page-content">
+
+    <!-- <div class="block-title">Teams</div> -->
+    <div class="block">
+      <div id="matchup">
+
+      </div><!--matchup -->
+      <div id="lineup" class="hideThis">
+        <p class="segmented">
+          <button id="homeShow" onclick="showHome()" class="line button button-outline button-active">Home</button>
+          <button id="awayShow" onclick="showAway()" class="line button button-outline">Away</button>
+        </p>
+        <div id="homeLineup" class="list links-list">
+          <ul id="homeTeamLineUp" class="homeLineup">
+
+          </ul>
+        </div>
+        <div id="awayLineup" class="list links-list hideThis">
+          <ul id="awayTeamLineUp"></ul>
+        </div>
+      </div><!-- lineup -->
+    </div><!-- block -->
+
+  </div><!-- page-content -->
+</div><!-- page -->

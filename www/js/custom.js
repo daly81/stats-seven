@@ -12,6 +12,14 @@ function showAway(){
   $('#homeShow').removeClass('button-active');
   $('#awayShow').addClass('button-active');
 }
+//unplayed Views
+
+
+
+
+
+
+
 
 // var store = new Vuex.Store({
 //   state: {

@@ -20,8 +20,8 @@ routes = [
     url: './pages/settings.html',
   },
   {
-    path: '/lineup/',
-    url: './pages/lineup.html',
+    path: '/unplayed/',
+    url: './pages/mlb/unplayed.html',
   },
   // Page Loaders & Router
   {

@@ -73,6 +73,8 @@ $('document').ready(function(){
 
         var homeTeamName = res.scoreboard.gameScore[i].game.homeTeam.Name;
         var awayTeamName = res.scoreboard.gameScore[i].game.awayTeam.Name;
+        var homeAbb = res.scoreboard.gameScore[i].game.homeTeam.Abbreviation;
+        var awayAbb = res.scoreboard.gameScore[i].game.awayTeam.Abbreviation;
         var homeScore = res.scoreboard.gameScore[i].homeScore;
         var awayScore = res.scoreboard.gameScore[i].awayScore;
         var currentInningHalf = res.scoreboard.gameScore[i].currentInningHalf;
@@ -127,7 +129,7 @@ $('document').ready(function(){
         };
         if (unplayed=="true"){
           $('#unplayed').append(
-            '<a class="item-link startingLineUp" id="'+gameID+'" href="/lineup/">' +
+            '<a class="item-link startingLineUp" id="'+gameID+'" href="/unplayed/">' +
               '<div class="ip">' +
                 '<div class="row">' +
                   '<div class="col-70">' + awayTeamName + '</div>' +
@@ -165,151 +167,19 @@ $('document').ready(function(){
       }//for loop
     }//Success function
   });//ajax
+
+
+  //=====================================Events=======================================
+  //boxscore trigger
   $('.gameid').click(function () {
     var selected_id = jQuery(this).attr("id");
     getBoxscore(selected_id);
   });
-  function getBoxscore(game_id){
-    console.log("Game id: "+game_id);
-    $.ajax({
-      type: "GET",
-      url: 'https://api.mysportsfeeds.com/v1.2/pull/mlb/current/game_boxscore.json?gameid='+game_id,
-      dataType: 'json',
-      async: false,
-      headers: {
-        Authorization: "Basic " + btoa("idaly" + ":" + "IvD1803")
-      },
-      error: function(res){
-        console.log("ERROR "+ res);
-      },
-      // data: '{res}',
-      success: function (res){
-        var is = res.gameboxscore;
-        console.log(is);
-        var inningLen = res.gameboxscore.inningSummary.inning.length;
-        var awayTeam = res.gameboxscore.game.awayTeam.Name;
-        var homeTeam = res.gameboxscore.game.homeTeam.Name;
-
-        var homeHits = res.gameboxscore.homeTeam.homeTeamStats.Hits["#text"];
-        var awayHits = res.gameboxscore.awayTeam.awayTeamStats.Hits["#text"];
-        var awayErrors = res.gameboxscore.awayTeam.awayTeamStats.Errors["#text"];
-        var homeErrors = res.gameboxscore.homeTeam.homeTeamStats.Errors["#text"]
-        for(var j=0; j<inningLen; j++){
-          var innings = res.gameboxscore.inningSummary.inning[j]["@number"];
-          var awayScore = res.gameboxscore.inningSummary.inning[j].awayScore;
-          var homeScore = res.gameboxscore.inningSummary.inning[j].homeScore;
-
-
-
-          // $('#innings').append('<td>'+innings+'</td>');
-          // $('#homeTeam').html(homeTeam);
-          // $('#homeScore').append('<td>'+homeScore+'</td>');
-          // $('#awayTeam').html(awayTeam);
-          // $('#awayScore').append('<td>'+awayScore+'</td>');
-          //
-          // $('#hth').html('<td>'+homeHits+'</td>')
-          // $('#ath').html('<td>'+awayHits+'</td>')
-          //
-          // $('#homeErr').html('<td>'+homeErrors+'</td>')
-          // $('#awayErr').html('<td>'+awayErrors+'</td>')
-        }
-      }
-    });//ajax
-  }//getplaybyplay function
-  // cumulativePlayerStats();
-
+  //starting lineup trigger
   $('.startingLineUp').click(function () {
     var game_id = jQuery(this).attr("id");
     startingLineUp(game_id);
   });
-  function startingLineUp(game_id){
-    $.ajax({
-        type: "GET",
-        url: 'https://api.mysportsfeeds.com/v1.2/pull/mlb/current/game_startinglineup.json?gameid='+game_id,
-        dataType: 'json',
-        async: false,
-        headers: {
-          Authorization: "Basic " + btoa("idaly" + ":" + "IvD1803")
-        },
-        success: function (res){
-          console.log(res);
-          var date = res.gamestartinglineup.game.date;
-          var awayCity = res.gamestartinglineup.game.awayTeam.City;
-          var homeCity = res.gamestartinglineup.game.homeTeam.City;
-          var awayAbb = res.gamestartinglineup.game.awayTeam.Abbreviation;
-          var homeAbb = res.gamestartinglineup.game.homeTeam.Abbreviation;
-          var startingAway = res.gamestartinglineup.game.awayTeam.Name;
-          var startingHome = res.gamestartinglineup.game.homeTeam.Name;
-          var awayID = res.gamestartinglineup.game.awayTeam.ID;
-          var homeID = res.gamestartinglineup.game.awayTeam.ID;
+  //============================================================================
 
-          //away lineup
-          var players = res.gamestartinglineup.teamLineup[0].expected;
-          if (players != null) {
-            players = res.gamestartinglineup.teamLineup[0].expected.starter.length;
-            // store.commit('setPlayers',  res.gamestartinglineup.teamLineup[0].expected);
-          } else{
-            $('#homeTeamLineUp').append(
-              '<li><a href="#">No expected lineup yet! Check back soon</a></li>'
-            );
-          }
-          for (var i=0; i<players; i ++){
-            var check_a_expected = res.gamestartinglineup.teamLineup[0].expected.starter[i].player;
-            if (check_a_expected !=null) {
-              //away players
-              var a_players_first = res.gamestartinglineup.teamLineup[0].expected.starter[i].player.FirstName;
-              var a_players_last = res.gamestartinglineup.teamLineup[0].expected.starter[i].player.LastName;
-              var a_players_num = res.gamestartinglineup.teamLineup[0].expected.starter[i].player.JerseyNumber;
-              var a_players_pos = res.gamestartinglineup.teamLineup[0].expected.starter[i].player.Position;
-
-              //home players
-              var h_players_first = res.gamestartinglineup.teamLineup[1].expected.starter[i].player.FirstName;
-              var h_players_last = res.gamestartinglineup.teamLineup[1].expected.starter[i].player.LastName;
-              var h_players_num = res.gamestartinglineup.teamLineup[1].expected.starter[i].player.JerseyNumber;
-              var h_players_pos = res.gamestartinglineup.teamLineup[1].expected.starter[i].player.Position;
-            }
-            var aname = a_players_first + ' ' + a_players_last;
-            var hname = h_players_first + ' ' + h_players_last;
-
-            $('#awayTeamLineUp').append(
-              '<li><a href="#">'+aname+'</a></li>'
-            );
-            $('#homeTeamLineUp').append(
-              '<li><a href="#">'+hname+'</a></li>'
-            );
-
-            $('#homeShow').html(
-              startingHome
-            )
-            $('#awayShow').html(
-              startingAway
-            )
-
-          }//for
-        }//success function
-      });//ajax
-  }//startingLineUp
-  function cumulativePlayerStats(player_id){
-    $.ajax({
-        type: "GET",
-        url: 'https://api.mysportsfeeds.com/v1.2/pull/mlb/current/cumulative_player_stats.json',
-        dataType: 'json',
-        async: false,
-        headers: {
-          Authorization: "Basic " + btoa("idaly" + ":" + "IvD1803")
-        },
-        success: function (res){
-          console.log(res);
-          var players = res.cumulativeplayerstats.playerstatsentry;
-          for (var i = 0; i < players.length; i ++){
-            var cpsTeamName = res.cumulativeplayerstats.playerstatsentry[i].team.Name;
-            var playerName = res.cumulativeplayerstats.playerstatsentry[i].player.FirstName;
-            if(teamsName == cpsTeamName){
-              console.log("player: " + playerName);
-            }
-          }
-          console.log(cpsTeamName);
-        }//success function
-      });//ajax
-  }//cumulativePlayerStats
 })//document ready function

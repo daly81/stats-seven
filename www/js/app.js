@@ -50,9 +50,8 @@ var catalogView = app.views.create('#view-catalog', {
 var settingsView = app.views.create('#view-settings', {
   url: '/settings/'
 });
-
-var lineupView = app.views.create('#view-lineup', {
-  url: '/lineup/'
+var unplayedView = app.views.create('#view-unplayed', {
+  url: '/unplayed/'
 });
 
 

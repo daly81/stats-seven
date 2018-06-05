@@ -20,7 +20,7 @@
   <meta name="msapplication-tap-highlight" content="no">
   <title>My App</title>
 
-  <link rel="stylesheet" href="framework7/css/framework7.min.css">
+  <link rel="stylesheet" href="framework7/css/framework7.css">
   <link rel="stylesheet" href="css/icons.css">
   <link rel="stylesheet" href="css/app.css">
 
@@ -123,16 +123,10 @@
       <div id="view-catalog" class="view tab">
         <!-- Catalog page will be loaded here dynamically from /catalog/ route -->
       </div>
-
       <!-- Settings View -->
-      <div id="view-settings" class="view tab">
-        <!-- Settings page will be loaded here dynamically from /settings/ route -->
-      </div>
-
-      <!-- lineup View -->
-      <div id="view-lineup">
-        <!-- Settings page will be loaded here dynamically from /settings/ route -->
-      </div>
+      <div id="view-settings" class="view tab"></div>
+      <!-- unplayed View -->
+      <div id="view-unplayed"></div>
 
     </div>
 
@@ -145,16 +139,11 @@
   <!--
   <script src="cordova.js"></script>
   -->
-
   <!-- Framework7 library -->
   <script src="framework7/js/framework7.min.js"></script>
 
   <!-- App routes -->
   <script src="js/routes.js"></script>
-
-
-  <!-- Your custom app scripts -->
-  <!-- <script src="js/app.vue.js"></script> -->
 
   <!-- vue js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
@@ -166,7 +155,10 @@
 
 
   <!-- MLB STATS -->
-  <script src="js/mlb_scoreboard.js"></script>
+  <script src="js/mlb/mlb_scoreboard.js"></script>
+  <script src="js/mlb/starting-lineup.js"></script>
+  <script src="js/mlb/boxscore.js"></script>
+  <script src="js/mlb/cumulative-player-stats.js"></script>
 
   <!-- custom.js -->
   <script src="js/custom.js"></script>
