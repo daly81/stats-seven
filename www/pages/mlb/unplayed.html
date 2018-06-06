@@ -1,5 +1,5 @@
 <div class="page" data-name="unplayed">
-  <div class="navbar">
+  <div class="navbar color-theme-black">
     <div class="navbar-inner sliding">
       <div class="left">
         <a href="#" class="link back">
@@ -10,7 +10,7 @@
       <div class="title unplayed-title">Matchup</div>
     </div><!-- navbar-inner sliding -->
   </div><!-- navbar -->
-  <div class="toolbar tabbar tabbar-labels">
+  <div class="toolbar tabbar tabbar-labels color-theme-black">
     <div class="toolbar-inner">
       <a id="matchup_trig" class="tab-link tab-link-active">
         <span class="tabbar-label">Matchup</span>
@@ -29,18 +29,24 @@
 
       </div><!--matchup -->
       <div id="lineup" class="hideThis">
-        <p class="segmented">
-          <button id="homeShow" onclick="showHome()" class="line button button-outline button-active text-color-white">Home</button>
-          <button id="awayShow" onclick="showAway()" class="line button button-outline text-color-white">Away</button>
+        <p class="segmented border-color-blue color-theme-blue">
+          <button id="homeShow" onclick="showHome()" class="line button button-outline button-active">Home</button>
+          <button id="awayShow" onclick="showAway()" class="line button button-outline">Away</button>
         </p>
-        <div id="homeLineup" class="list links-list">
+        <!-- <div id="homeLineup" class="list links-list">
           <ul id="homeTeamLineUp" class="homeLineup">
 
           </ul>
+        </div> -->
+        <div id="homeLineup" class="list components-list searchbar-found">
+          <ul id="homeTeamLineUp" class="homeLineup"></ul>
         </div>
-        <div id="awayLineup" class="list links-list hideThis">
+        <div id="awayLineup" class="list components-list searchbar-found hideThis">
+          <ul id="awayTeamLineUp" class="awayLineup"></ul>
+        </div>
+        <!-- <div id="awayLineup" class="list links-list hideThis">
           <ul id="awayTeamLineUp"></ul>
-        </div>
+        </div> -->
       </div><!-- lineup -->
     </div><!-- block -->
 

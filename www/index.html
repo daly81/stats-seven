@@ -18,22 +18,24 @@
   <meta name="theme-color" content="#2196f3">
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
-  <title>My App</title>
+  <title>Stats Seven</title>
 
   <link rel="stylesheet" href="framework7/css/framework7.css">
+  <!-- <link rel="stylesheet" href="framework7/css/framework7.md.css" /> -->
+  <!-- <link rel="stylesheet" href="framework7/css/framework7.ios.css" /> -->
   <link rel="stylesheet" href="css/icons.css">
   <link rel="stylesheet" href="css/app.css">
 
 </head>
 <body>
-  <div id="app" class="theme-dark color-theme-bluegray">
+  <div id="app" class="theme-dark">
     <!-- Status bar overlay for fullscreen mode-->
     <div class="statusbar"></div>
     <!-- Left panel with cover effect-->
     <div class="panel panel-left panel-cover theme-dark">
       <div class="view">
         <div class="page">
-          <div class="navbar">
+          <div class="navbar color-theme-black">
             <div class="navbar-inner">
               <div class="title">Left Panel</div>
             </div>
@@ -48,7 +50,7 @@
     <div class="panel panel-right panel-reveal theme-dark">
       <div class="view">
         <div class="page">
-          <div class="navbar">
+          <div class="navbar color-theme-black">
             <div class="navbar-inner">
               <div class="title">Right Panel</div>
             </div>
@@ -63,7 +65,7 @@
     <!-- Views/Tabs container -->
     <div class="views tabs ios-edges">
       <!-- Tabbar for switching views-tabs -->
-      <div class="toolbar tabbar-labels toolbar-bottom-md">
+      <div class="toolbar tabbar-labels toolbar-bottom-md color-theme-black">
         <div class="toolbar-inner">
           <a href="#view-home" class="tab-link tab-link-active">
             <i class="icon f7-icons ios-only">home</i>
@@ -90,7 +92,7 @@
         <!-- Page, data-name contains page name which can be used in page callbacks -->
         <div class="page" data-name="home">
           <!-- Top Navbar -->
-          <div class="navbar">
+          <div class="navbar color-theme-black">
             <div class="navbar-inner">
               <div class="left">
                 <a href="#" class="link icon-only panel-open" data-panel="left">

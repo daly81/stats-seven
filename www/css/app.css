@@ -15,3 +15,11 @@
 .hideThis{
   display: none;
 }
+.player_img{
+  border-radius: 50%;
+  width: 35px;
+}
+.team_logo{
+  border-radius: 50%;
+  width: 20px;
+}

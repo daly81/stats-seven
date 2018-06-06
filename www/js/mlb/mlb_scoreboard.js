@@ -114,12 +114,14 @@ $('document').ready(function(){
             '<a class="item-link gameid" id="'+gameID+'" href="/accordion/">' +
               '<div class="ip">' +
                 '<div class="row">' +
-                  '<div class="col-70">' + awayTeamName + '</div>' +
+                  '<div class="col-10"><img class="team_logo" src="img_avatar.png" alt="Logo"></div>' +
+                  '<div class="col-60">' + awayTeamName + '</div>' +
                   '<div class="col-5">' + awayScore + '</div>' +
                   '<div class="col-25"><i class="material-icons">'+chevron+'</i>'+ ' ' +inning+'</div>' +
                 '</div>' +
                 '<div class="row">' +
-                  '<div class="col-70">' + homeTeamName + '</div>' +
+                  '<div class="col-10"><img class="team_logo" src="img_avatar.png" alt="Logo"></div>' +
+                  '<div class="col-60">' + homeTeamName + '</div>' +
                   '<div class="col-5">' + homeScore + '</div>' +
                   '<div class="col-25">'+outs+' Outs</div>' +
                 '</div>' +
@@ -132,12 +134,14 @@ $('document').ready(function(){
             '<a class="item-link startingLineUp" id="'+gameID+'" href="/unplayed/">' +
               '<div class="ip">' +
                 '<div class="row">' +
-                  '<div class="col-70">' + awayTeamName + '</div>' +
+                  '<div class="col-10"><img class="team_logo" src="img_avatar.png" alt="Logo"></div>' +
+                  '<div class="col-60">' + awayTeamName + '</div>' +
                   '<div class="col-5">' + finalGameTime + '</div>' +
                   '<div class="col-25"></div>' +
                 '</div>' +
                 '<div class="row">' +
-                  '<div class="col-70">' + homeTeamName + '</div>' +
+                  '<div class="col-10"><img class="team_logo" src="img_avatar.png" alt="Logo"></div>' +
+                  '<div class="col-60">' + homeTeamName + '</div>' +
                   '<div class="col-5"></div>' +
                   '<div class="col-25"></div>' +
                 '</div>' +
@@ -151,12 +155,14 @@ $('document').ready(function(){
             '<a class="item-link gameid" id="'+gameID+'" href="/accordion/">' +
               '<div class="ip">' +
                 '<div class="row">' +
-                  '<div class="col-70">' + awayTeamName + '</div>' +
+                  '<div class="col-10"><img class="team_logo" src="img_avatar.png" alt="Logo"></div>' +
+                  '<div class="col-60">' + awayTeamName + '</div>' +
                   '<div class="col-5">' + awayScore + '</div>' +
                   '<div class="col-25">Final</div>' +
                 '</div>' +
                 '<div class="row">' +
-                  '<div class="col-70">' + homeTeamName + '</div>' +
+                  '<div class="col-10"><img class="team_logo" src="img_avatar.png" alt="Logo"></div>' +
+                  '<div class="col-60">' + homeTeamName + '</div>' +
                   '<div class="col-5">' + homeScore + '</div>' +
                   '<div class="col-25"></div>' +
                 '</div>' +
