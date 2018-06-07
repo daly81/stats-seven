@@ -23,3 +23,15 @@
   border-radius: 50%;
   width: 20px;
 }
+.header{
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: #000;
+}
+.header p {
+  margin: 10px;
+}
+.contain{
+  height: 30px; 
+}
