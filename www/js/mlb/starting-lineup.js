@@ -17,58 +17,30 @@ function startingLineUp(game_id){
         var homeAbb = res.gamestartinglineup.game.homeTeam.Abbreviation;
         var startingAway = res.gamestartinglineup.game.awayTeam.Name;
         var startingHome = res.gamestartinglineup.game.homeTeam.Name;
-        var awayID = res.gamestartinglineup.game.awayTeam.ID;
-        var homeID = res.gamestartinglineup.game.awayTeam.ID;
+        var awayID = res.gamestartinglineup.teamLineup[0].team.ID;
+        var homeID = res.gamestartinglineup.teamLineup[1].team.ID;
+        //player injuries
+        player_injuries(awayID, homeID);
 
         //away lineup
         var players = res.gamestartinglineup.teamLineup[0].expected;
         if (players != null) {
           players = res.gamestartinglineup.teamLineup[0].expected.starter.length;
+          //Positions
+          var _1b = "1B";
+          var _2b = "2B";
+          var _3b = "3B";
+          var p = "P";
+          var cf = "CF";
+          var ss = "SS";
+          var rf = "RF";
+          var lf = "LF";
+          var c = "C";
         } else{
-          $('#homeTeamLineUp').append(
+          $('#homeTeamLineUp,#awayTeamLineUp',).append(
             '<li><a href="#">No expected lineup yet!</a></li>'
           );
         }//else players null
-
-        //firstbase
-        var a_1b = res.gamestartinglineup.teamLineup[0].expected.starter[18].position;
-        //secondbase
-        var a_2b = res.gamestartinglineup.teamLineup[0].expected.starter[16].position;
-        //thirdbase
-        var a_3b = res.gamestartinglineup.teamLineup[0].expected.starter[5].position;
-        //pitch
-        var a_p = res.gamestartinglineup.teamLineup[0].expected.starter[14].position;
-        //center field
-        var a_cf = res.gamestartinglineup.teamLineup[0].expected.starter[13].position;
-        //short stop
-        var a_ss = res.gamestartinglineup.teamLineup[0].expected.starter[12].position;
-        //rigth field
-        var a_rf = res.gamestartinglineup.teamLineup[0].expected.starter[3].position;
-        //left field
-        var a_lf = res.gamestartinglineup.teamLineup[0].expected.starter[19].position;
-        //center
-        var a_c = res.gamestartinglineup.teamLineup[0].expected.starter[7].position;
-
-        //firstbase
-        var h_1b = res.gamestartinglineup.teamLineup[1].expected.starter[18].position;
-        //secondbase
-        var h_2b = res.gamestartinglineup.teamLineup[1].expected.starter[16].position;
-        //thirdbase
-        var h_3b = res.gamestartinglineup.teamLineup[1].expected.starter[5].position;
-        //pitch
-        var h_p = res.gamestartinglineup.teamLineup[1].expected.starter[14].position;
-        //center field
-        var h_cf = res.gamestartinglineup.teamLineup[1].expected.starter[13].position;
-        //short stop
-        var h_ss = res.gamestartinglineup.teamLineup[1].expected.starter[12].position;
-        //rigth field
-        var h_rf = res.gamestartinglineup.teamLineup[1].expected.starter[3].position;
-        //left field
-        var h_lf = res.gamestartinglineup.teamLineup[1].expected.starter[19].position;
-        //center
-        var h_c = res.gamestartinglineup.teamLineup[1].expected.starter[7].position;
-
-
         //show hide the sections in unplayed
         $('#matchup_trig').click(function(){
           $('#matchup_trig').addClass('tab-link-active');
@@ -106,31 +78,31 @@ function startingLineUp(game_id){
           //away exepected staters
           var away_player_positions = res.gamestartinglineup.teamLineup[0].expected.starter[j].position;
           switch(away_player_positions) {
-              case a_1b:
+              case _1b:
                   aPosArr.push(aplayerinfo)
                   break;
-              case a_2b:
+              case _2b:
                   aPosArr.push(aplayerinfo)
                   break;
-              case a_3b:
+              case _3b:
                   aPosArr.push(aplayerinfo)
                   break;
-              case a_p:
+              case p:
                   aPosArr.push(aplayerinfo)
                   break;
-              case a_cf:
+              case cf:
                   aPosArr.push(aplayerinfo)
                   break;
-              case a_ss:
+              case ss:
                   aPosArr.push(aplayerinfo)
                   break;
-              case a_rf:
+              case rf:
                   aPosArr.push(aplayerinfo)
                   break;
-              case a_lf:
+              case lf:
                   aPosArr.push(aplayerinfo)
                   break;
-              case a_c:
+              case c:
                   aPosArr.push(aplayerinfo)
                   break;
               default:
@@ -157,31 +129,31 @@ function startingLineUp(game_id){
           //home expected staters
           var home_player_positions = res.gamestartinglineup.teamLineup[1].expected.starter[j].position;
           switch(home_player_positions) {
-              case h_1b:
+              case _1b:
                   hPosArr.push(hplayerinfo)
                   break;
-              case h_2b:
+              case _2b:
                   hPosArr.push(hplayerinfo)
                   break;
-              case h_3b:
+              case _3b:
                   hPosArr.push(hplayerinfo)
                   break;
-              case h_p:
+              case p:
                   hPosArr.push(hplayerinfo)
                   break;
-              case h_cf:
+              case cf:
                   hPosArr.push(hplayerinfo)
                   break;
-              case h_ss:
+              case ss:
                   hPosArr.push(hplayerinfo)
                   break;
-              case h_rf:
+              case rf:
                   hPosArr.push(hplayerinfo)
                   break;
-              case h_lf:
+              case lf:
                   hPosArr.push(hplayerinfo)
                   break;
-              case h_c:
+              case c:
                   hPosArr.push(hplayerinfo)
                   break;
               default:
@@ -204,8 +176,6 @@ function startingLineUp(game_id){
           var aname = a_first_init + '. ' + a_players_last;
           var hname = h_first_init + '. ' + h_players_last;
 
-          //Title
-          $('.unplayed-title').html(awayAbb+ ' @ '+homeAbb);
 
           //show hide the sections in unplayed
           $('#matchup_trig').click(function(){
@@ -220,7 +190,6 @@ function startingLineUp(game_id){
             $('#lineup').show();
             $('#matchup').hide();
           })
-
           //lineup sections
           $('#awayTeamLineUp').append(
             '<li>' +
@@ -244,14 +213,16 @@ function startingLineUp(game_id){
               '</a>' +
             '</li>'
           );
-
-          $('#homeShow').html(
-            startingHome
-          )
-          $('#awayShow').html(
-            startingAway
-          )
         }//for
+        //Title
+        $('.unplayed-title').html(awayAbb+ ' @ '+homeAbb);
+        $('#homeShow').html(
+          startingHome
+        )
+        $('#awayShow').html(
+          startingAway
+        )
       }//success function
     });//ajax
+
 }//startingLineUp

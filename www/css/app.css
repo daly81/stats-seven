@@ -9,9 +9,6 @@
   border-bottom: 1px solid grey;
   padding: 12px;
 }
-#awayLineup{
-  display: none;
-}
 .hideThis{
   display: none;
 }
@@ -33,5 +30,5 @@
   margin: 10px;
 }
 .contain{
-  height: 30px; 
+  height: 30px;
 }
